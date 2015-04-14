@@ -79,7 +79,9 @@ fieldset {
  */
 
 textarea {
-    resize: vertical;
+	display:block;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
 /* ==========================================================================
@@ -129,6 +131,10 @@ body {
 	padding:0;
 }
 
+form{
+	margin-left:10px;
+}
+
 .footer{
 	margin-top: 5%;
 }
@@ -154,12 +160,10 @@ a {
   -ms-transition: color 0.5s; 
 }
 a:hover {
-  color: #333; 
+  color: #333;
+  text-decoration: none; 
 }
 
-div.field, div.actions {
-  /*margin-bottom: 10px;*/ 
-}
 div.header, div.footer {
   background-color: rgba(0, 0, 0, 0.8);
   padding: 1px;
@@ -185,7 +189,7 @@ div.body {
   font-size: 40px; 
 }
 .header h1 a {
-	text-decoration:none;
+  text-decoration:none;
   transition: text-shadow 0.5s;
   -moz-transition: text-shadow 0.5s;
   -webkit-transition: text-shadow 0.5s;
