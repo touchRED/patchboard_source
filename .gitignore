@@ -6,3 +6,7 @@ bower_components
 .gitattributes
 .editorconfig
 .bowerrc
+.DS_Store
+.travis.yml
+.jshintrc
+.bowerrc
