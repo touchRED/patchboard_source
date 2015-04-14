@@ -1,4 +1,6 @@
 patchboard
 ==========
 
-A wannabe imageboard by Connor Trotter.
+Some sort of wannabe imageboard mess.
+
+Version 1.1
