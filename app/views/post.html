@@ -1,14 +1,22 @@
 <div class="post">
 	<h3>{{detailed_post.title}}</h3>
-	<p>{{detailed_post.content}}</p>
+	<p ng-bind-html="useHtml"></p>
 	<p class = "name">Posted by <strong>{{detailed_post.user}}</strong></p>
 </div>
 <br />
 
 <h2>Comments</h2>
-<!-- <div ng-repeat="comment in comments">
-	<div class="comment">
-		<p>{{comment.user}} said: {{comment.content}}</p>
+<div ng-repeat="comment in comments">
+	<div class="post">
+		<h3>{{comment.user}} said:</h3>
+		<p>{{comment.content}}</p>
 	</div>
-</div> -->
+</div>
+
+<h3 style="margin-left:10px">Add a comment:</h3>
+ <form ng-submit="addComment()">
+	<textarea rows="7" cols="25" ng-model="content" placeholder="Post Content"></textarea>
+	<input type = "text" ng-model="user" placeholder="User">
+	<input type = "submit">
+ </form>
 

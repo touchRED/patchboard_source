@@ -13,12 +13,12 @@ angular.module('patchboardApp')
 	  $scope.posts = $firebaseArray(new Firebase('https://patchboard.firebaseio.com/Posts/'));
 
 	  $scope.addPost = function(){
-		  $scope.posts.$add({title:$scope.title,content:$scope.content,user:$scope.user});
+		  $scope.posts.$add({title:$scope.title,content:$scope.content,user:$scope.user, comments:['empty']});
 		  $scope.title = '';
 		  $scope.content = '';
 		  $scope.user = '';
 		  $location.path('/');
-		  console.log("success");
+		  console.log("done");
 	  };
 }]);
 

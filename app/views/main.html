@@ -1,14 +1,13 @@
 <h2>Recent Posts</h2>
 
-<a href="#/new">New Post</a>
+<a href="#/new" style="margin-left:5px">New Post</a>
 
-<br />
 <br />
 
 <div ng-repeat="post in posts">
 	<div class  = "post">
 		<h3><a href="#/posts/{{post.$id}}">{{post.title}}</a></h3>
-		<p>{{post.content}}</p>
+		<p ng-bind-html="post.useHtml"></p>
 		<p class = "name">Posted by <strong>{{post.user}}</strong></p>
 	</div>
 </div>
