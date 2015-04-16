@@ -15,25 +15,38 @@ angular.module('patchboardApp')
 
 	var deets = $routeParams.detailKey;
 
-	$scope.posts.$loaded()
-	.then(function(x){
-		$scope.detailed_post = x[deets];
+ 	$scope.posts.$bindTo($scope, 'data')
+	.then(function(){
+		$scope.detailed_post = $scope.data[deets];
 		$scope.useHtml = $sce.trustAsHtml($scope.detailed_post.content);
-		if(x[deets].comments){
-			$scope.comments = x[deets].comments.splice(1);
+		if($scope.data[deets].comments){
+			if($scope.data[deets].comments[0].user === 'No Comments Yet' && $scope.data[deets].comments.length == 1){
+				$scope.comments = $scope.data[deets].comments;
+				console.log('event 1 triggered');
+			}
+			else if($scope.data[deets].comments[0].user === 'No Comments Yet' && $scope.data[deets].comments.length == 2){
+				$scope.comments = $scope.data[deets].comments;
+				console.log('event 2 triggered');
+			}
+			else{
+				$scope.comments = $scope.data[deets].comments;
+				console.log('event 3 triggered');
+			}
 		}
 		$scope.addComment = function(){
 			$scope.comments.push({content:$scope.content, user:$scope.user});
 			$scope.user = '';
 			$scope.content = '';
+			if($scope.data[deets].comments[0].user === 'No Comments Yet' && $scope.data[deets].comments.length == 2){
+				$scope.comments.shift();
+			}
 			$scope.posts.$save();
 		}
-		console.log(x[deets]);
 	})
 	.catch(function(err){
 		console.log('Ya got errors, son' + err);
 	});
 	
   }]);
-
+//this stays here forever
  
